@@ -18,9 +18,12 @@ class SigninPageLocators:
 
 class IneedchatPageLocators:
     INEED_CHAT_LINK = "https://ineed.chat"
-    MAIN_MENU_OPEN = (By.CSS_SELECTOR, "a.menu-btn")
+    MAIN_MENU_OPEN = (By.CSS_SELECTOR, '.menu-btn')
     MAIN_MENU_CLOSE = (By.CSS_SELECTOR, ".close-menu-btn")
     MAIN_MENU_CLIENTS_ENTRANCE = (By.XPATH, '//div[@class="main-menu"]/ul/li/a[contains(text(), "Вход для клиентов")]')
+
+class CreateAppPageLocators:
+    CREATE_APP_BTN = (By.CSS_SELECTOR, "#lk-apps-start-create-btn")
 
 
 
