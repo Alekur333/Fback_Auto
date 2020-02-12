@@ -23,7 +23,18 @@ class IneedchatPageLocators:
     MAIN_MENU_CLIENTS_ENTRANCE = (By.XPATH, '//div[@class="main-menu"]/ul/li/a[contains(text(), "Вход для клиентов")]')
 
 class CreateAppPageLocators:
+    CREATE_APP_LINK = "https://lk.ineed.chat/apps/start"
     CREATE_APP_BTN = (By.CSS_SELECTOR, "#lk-apps-start-create-btn")
+
+class AppsFunctionsLocators:
+    APPS_FUNCTIONS_LINK = "https://lk.ineed.chat/apps/details/function/f87f30c2-81c5-42b4-a45f-12912781bc33"
+    FUNCTIONS_DONE_BTN = (By.CSS_SELECTOR, "#lk-step-1-complete")
+
+    NEWS_CHECK = (By.CSS_SELECTOR, "#lk-app-func-on-news")
+    NEWS_IN_DETAIL_BTN = (By.CSS_SELECTOR, "#lk-app-func-question-news")
+    NEWS_IN_DETAIL_CLOSE = (By.CSS_SELECTOR, 'div[class="mat-button-ripple mat-ripple mat-button-ripple-round"]')
+
+
 
 
 
