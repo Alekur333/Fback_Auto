@@ -16,4 +16,12 @@ class SigninPageLocators:
     PASSWORD_FIELD = (By.NAME, "password")
     SIGNIN_BTN = (By.CSS_SELECTOR, "button.w-100.mat-flat-button.mat-primary")
 
+class IneedchatPageLocators:
+    INEED_CHAT_LINK = "https://ineed.chat"
+    MAIN_MENU_OPEN = (By.CSS_SELECTOR, "a.menu-btn")
+    MAIN_MENU_CLOSE = (By.CSS_SELECTOR, ".close-menu-btn")
+    MAIN_MENU_CLIENTS_ENTRANCE = (By.XPATH, '//div[@class="main-menu"]/ul/li/a[contains(text(), "Вход для клиентов")]')
+
+
+
 

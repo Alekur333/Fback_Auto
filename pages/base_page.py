@@ -1,5 +1,4 @@
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
-# from .locators import BasePageLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import math
@@ -19,7 +18,7 @@ class BasePage():
         except NoSuchElementException:
             return False
 
-   # Можно добавить в BasePage абстрактный метод, который проверяет,
+    # абстрактный метод, который проверяет,
     # что элемент не появляется на странице в течение заданного времени:
     def is_not_element_present(self, how, what, timeout=2):
         try:
