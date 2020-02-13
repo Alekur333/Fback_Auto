@@ -34,3 +34,15 @@ class AppsFunctionsPage(BasePage):
 
     def check_news_function(self):
         self.browser.find_element(*AppsFunctionsLocators.NEWS_CHECK).click()
+
+
+
+
+    def should_be_functions_done_btn(self):
+        assert WebDriverWait(self.browser, 2).until\
+            (ec.presence_of_element_located(AppsFunctionsLocators.FUNCTIONS_DONE_BTN)), \
+            "Кнопка ПРОДОЛЖИТЬ на странице функций не найдена"
+
+    def functions_done(self):
+        self.browser.find_element(*AppsFunctionsLocators.FUNCTIONS_DONE_BTN).click()
+

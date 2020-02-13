@@ -34,6 +34,23 @@ class AppsFunctionsLocators:
     NEWS_IN_DETAIL_BTN = (By.CSS_SELECTOR, "#lk-app-func-question-news")
     NEWS_IN_DETAIL_CLOSE = (By.CSS_SELECTOR, 'div[class="mat-button-ripple mat-ripple mat-button-ripple-round"]')
 
+class AppsTitleLocators:
+    APPS_TITILE_LINK = "https://lk.ineed.chat/apps/details/info/f87f30c2-81c5-42b4-a45f-12912781bc33"
+    TITLE = "TestApp"
+    TITLE_FIELD = (By.CSS_SELECTOR, "#mat-input-0")
+    TITLE_COMPLETE_BTN = (By.CSS_SELECTOR, "#lk-step-2-1-complete")
+    IMAGE_DOWNLOAD_SKIP_BTN = (By.CSS_SELECTOR, "#lk-step-2-1-image-skip")
+    IMAGE_DOWNLOAD_BTN = (By.CSS_SELECTOR, "#lk-step-2-1-image-select")
+
+class AppsColorLocators:
+    APPS_COLOR_LINK = "https://lk.ineed.chat/apps/details/design/f87f30c2-81c5-42b4-a45f-12912781bc33"
+    APPS_COLOR = (By.CSS_SELECTOR, "div[style='background-color: rgb(38, 166, 91);']")
+    COLOR_COMPLETE_BTN = (By.CSS_SELECTOR, "#lk-step-3-complete")
+
+
+
+
+
 
 
 
