@@ -9,27 +9,34 @@ from pages.create_app_page import CreateAppPage
 from pages.apps_functions_page import AppsFunctionsPage
 from pages.locators import AppsFunctionsLocators
 from pages.apps_title_page import AppsTitlePage
+from pages.apps_color_page import AppsColorPage
+from pages.apps_demo_page import AppsDemoPage
 
 landing_link = (IneedchatPageLocators.INEED_CHAT_LINK)
 
 class TestAssembleAppFull:
 
     def test_assemble_app(self, browser):
+
         # Открыть лэндинг
         ineedchat_page = IneedChatPage(browser, landing_link)
         ineedchat_page.open()
+
         # Открыть меню
         ineedchat_page.should_be_clients_entrance_btn_in_main_menu()
         ineedchat_page.go_to_main_menu()
+
         # Сделать вход для клиентов
         ineedchat_page.should_be_main_menu_close_btn()
         ineedchat_page.should_be_clients_entrance_btn_in_main_menu()
         ineedchat_page.go_to_clients_entrance_in_main_menu()
+
         # Открыть страницу создания приложения
         create_app_page = CreateAppPage(browser, browser.current_url)
         create_app_page.should_be_create_app_btn()
         create_app_page.go_to_create_app_page()
         apps_functions_page = AppsFunctionsPage(browser, browser.current_url)
+
         # Выбрать опцию новости и опросы
         apps_functions_page.should_be_news_in_detail_btn()
         # apps_functions_page.go_to_news_in_detail_window()
@@ -49,5 +56,25 @@ class TestAssembleAppFull:
         title_page.complete_title()
         title_page.image_download_skip()
 
-        time.sleep(2)
+        # Выбрать цвет приложения
+        color_page = AppsColorPage(browser, browser.current_url)
+        color_page.should_be_apps_color()
+        color_page.select_apps_color()
+        color_page.should_be_color_complete_btn()
+        color_page.color_complete()
+
+        # Сохранить код приложения
+        demo_page = AppsDemoPage(browser, browser.current_url)
+        demo_page.demo_app_store_code()
+
+        # Сохранить демо приложение
+        demo_page.should_be_demo_safe_btn()
+        demo_page.demo_safe_btn()
+
+        # Перейти к регистрации
+        demo_page.should_be_signin_btn_for_demo_app_on_popup_window()
+        demo_page.should_be_signup_btn_for_demo_app_on_popup_window()
+        demo_page.signup_for_demo_app_on_popup_window()
+
+        # time.sleep(5)
 

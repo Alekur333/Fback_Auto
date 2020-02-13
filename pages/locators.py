@@ -47,6 +47,12 @@ class AppsColorLocators:
     APPS_COLOR = (By.CSS_SELECTOR, "div[style='background-color: rgb(38, 166, 91);']")
     COLOR_COMPLETE_BTN = (By.CSS_SELECTOR, "#lk-step-3-complete")
 
+class AppsDemoLocators:
+    DEMO_APPS_LINK = "https://lk.ineed.chat/apps/details/demo/f87f30c2-81c5-42b4-a45f-12912781bc33"
+    DEMO_APPS_CODE = (By.CSS_SELECTOR, "app-demo .cursor-pointer")
+    DEMO_SAFE_BTN = (By.CSS_SELECTOR, "#lk-step-4-1-complete")
+    DEMO_SIGNIN_BTN = (By.CSS_SELECTOR, "#lk-step-finish-to-signin")
+    DEMO_SIGNUP_BTN = (By.CSS_SELECTOR, "#lk-step-finish-to-signup")
 
 
 
