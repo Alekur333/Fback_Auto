@@ -3,10 +3,11 @@ import time
 from pages.signup_page import SignUpPage
 from pages.signin_page import SignInPage
 from pages.tempmail_page import TempMailPage
+from pages.locators import TempmailPageLocators, SignupPageLocators, SigninPageLocators
 
-link_tempmail = 'https://dropmail.me/'
-link_signup = 'https://lk.ineed.chat/auth/signup'
-link_signin = "https://lk.ineed.chat/auth/signin"
+link_tempmail = (TempmailPageLocators.TEMPMAIL_LINK)
+link_signup = (SignupPageLocators.SIGNUP_LINK)
+link_signin = (SigninPageLocators.SIGNIN_LINK)
 regname = "Feed Test"
 regphone = '9111111111'
 signin_mail = "aok@ineed.chat"
@@ -19,16 +20,17 @@ class TestLkSignup:
     def test_signup_full(self, browser):
 
         # Открыть страницу временной почты
-        tempmail_page = TempMailPage(browser, link_tempmail)
-        tempmail_page.open()
-        window1 = browser.window_handles[0]
+        browser.execute_script("window.open('{}', '_blank');".format(link_tempmail))
+        window1 = browser.window_handles[1]
+        browser.switch_to.window(window1)
+        tempmail_page = TempMailPage(browser, browser.current_url)
 
         # взять мейл для регистрации
         temp_mail = tempmail_page.get_tempmail()
 
         # Открыть в новом окне страницу регистрации и зарегистрироваться
         browser.execute_script("window.open('{}', '_blank');" .format(link_signup))
-        window2 = browser.window_handles[1]
+        window2 = browser.window_handles[2]
         browser.switch_to.window(window2)
         signup_page = SignUpPage(browser, browser.current_url)
         signup_page.should_be_signup_page(regname, temp_mail, regphone)
