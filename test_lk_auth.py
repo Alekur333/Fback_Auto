@@ -59,5 +59,6 @@ class TestLkSignin:
         signin_page = SignInPage(browser, link_signin)
         signin_page.open()
         signin_page.should_be_signin_page(signin_mail, signin_password)
+        # signin_page.get_screenshot_as_png()
 
 

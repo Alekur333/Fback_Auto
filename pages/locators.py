@@ -33,6 +33,7 @@ class AppsFunctionsLocators:
     APPS_FUNCTIONS_LINK = "https://lk.ineed.chat/apps/details/function/f87f30c2-81c5-42b4-a45f-12912781bc33"
     FUNCTIONS_DONE_BTN = (By.CSS_SELECTOR, "#lk-step-1-complete")
     FUNCTIONS_IN_DETAIL_WINDOW_CLOSE_BTN = (By.CSS_SELECTOR, '.close-btn')
+    HELP_BUTTON_CLOSE = (By.CSS_SELECTOR, ".main-button.close")
 
     # Функция НОВОСТИ
     NEWS_CHECK = (By.CSS_SELECTOR, "#lk-app-func-on-news")
@@ -58,6 +59,11 @@ class AppsFunctionsLocators:
     ORDER_CHECK = (By.CSS_SELECTOR, "#lk-app-func-on-order")
     ORDER_UNCHECK = (By.CSS_SELECTOR, "#lk-app-func-off-order")
     ORDER_IN_DETAIL_BTN = (By.CSS_SELECTOR, "#lk-app-func-question-order")
+    DELIVERY_CHECK = (By.CSS_SELECTOR, ".mat-dialog-container mat-checkbox:nth-child(1)")
+    SELF_EXPORT_CHECK = (By.CSS_SELECTOR, ".mat-dialog-container mat-checkbox:nth-child(2)")
+    ONLINE_PAY_CHECK = (By.CSS_SELECTOR, ".mat-dialog-container mat-checkbox:nth-child(3)")
+    APPLY_ADDITIONAL_PARAMETER_BTN = (By.CSS_SELECTOR, "button[_ngcontent-c20].mat-flat-button.mat-primary")
+    CLOSE_ADDITIONAL_PARAMETER_BTN = (By.CSS_SELECTOR, "button.close-btn.mat-icon-button.ng-star-inserted")
 
     # Функция ОНЛАЙН-ЗАПИСЬ
     APPOINTMENT_CHECK = (By.CSS_SELECTOR, "#lk-app-func-on-appointment")
@@ -75,9 +81,9 @@ class AppsFunctionsLocators:
     CALLBACK_IN_DETAIL_BTN = (By.CSS_SELECTOR, "#lk-app-func-question-callback")
 
     # Функция ЛОЯЛЬНОСТЬ
-    BONUSCARD_CHECK = (By.CSS_SELECTOR, "#lk-app-func-on-bonuscard")
-    BONUSCARD_UNCHECK = (By.CSS_SELECTOR, "#lk-app-func-off-bonuscard")
-    BONUSCARD_IN_DETAIL_BTN = (By.CSS_SELECTOR, "#lk-app-func-question-bonuscard")
+    BONUSCARD_CHECK = (By.CSS_SELECTOR, "#lk-app-func-on-bonus")
+    BONUSCARD_UNCHECK = (By.CSS_SELECTOR, "#lk-app-func-off-bonus")
+    BONUSCARD_IN_DETAIL_BTN = (By.CSS_SELECTOR, "#lk-app-func-question-bonus")
 
     # Функция ЗАЯВКИ
     STATEMENT_CHECK = (By.CSS_SELECTOR, "#lk-app-func-on-statement")
@@ -86,7 +92,7 @@ class AppsFunctionsLocators:
 
 class AppsTitleLocators:
     APPS_TITILE_LINK = "https://lk.ineed.chat/apps/details/info/f87f30c2-81c5-42b4-a45f-12912781bc33"
-    TITLE = "TestApp"
+    TITLE = "TestAppFback"
     TITLE_FIELD = (By.CSS_SELECTOR, "#mat-input-0")
     TITLE_COMPLETE_BTN = (By.CSS_SELECTOR, "#lk-step-2-1-complete")
     IMAGE_DOWNLOAD_SKIP_BTN = (By.CSS_SELECTOR, "#lk-step-2-1-image-skip")
@@ -105,6 +111,8 @@ class AppsDemoLocators:
     DEMO_SIGNUP_BTN = (By.CSS_SELECTOR, "#lk-step-finish-to-signup")
     DEMO_POPUP_WINDOW_CLOSE = (By.CSS_SELECTOR, ".close-btn")
 
+class AppDoneLocators:
+    REMOVE_APP_BTN = (By.CSS_SELECTOR, "#lk-apps-app-remove")
 
 
 

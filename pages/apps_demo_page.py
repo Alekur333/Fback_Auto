@@ -9,7 +9,7 @@ class AppsDemoPage(BasePage):
         code = WebDriverWait(self.browser, 300).until\
             (ec.presence_of_element_located(AppsDemoLocators.DEMO_APPS_CODE)).text
         assert "demo" in self.browser.current_url, 'Страница сохранения Демо приложения не загрузилась'
-        print(code)
+        print(f"Код созданного Вами приложения {code}.")
 
     def should_be_demo_safe_btn(self):
         assert WebDriverWait(self.browser, 10).until\

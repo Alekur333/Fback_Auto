@@ -12,7 +12,7 @@ class SignInPage(BasePage):
         self.signin_input_btn()
 
     # Проверяем переход на страницу входа
-    def  check_url_signin_page(self):
+    def check_url_signin_page(self):
         WebDriverWait(self.browser, 10).until(ec.url_contains("signin"))
         assert "signin" in self.browser.current_url, 'Регистрация не прошла'
 
