@@ -43,3 +43,7 @@ class AppsDemoPage(BasePage):
     def close_popup_window(self):
         self.browser.find_element(*AppsDemoLocators.DEMO_POPUP_WINDOW_CLOSE).click()
 
+    def should_be_signup_url_after_demo(self):
+        WebDriverWait(self.browser, 10).until(ec.url_contains("signup"))
+        assert "signup" in self.browser.current_url, 'Страница регистрации не доступна'
+

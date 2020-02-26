@@ -63,3 +63,7 @@ class SignUpPage(BasePage):
             result = False
         assert result == True,  "Кнопка 'Создать аккаунт' не найдена"
         # time.sleep(2)
+
+    def should_be_signup_url(self):
+        WebDriverWait(self.browser, 10).until(ec.url_contains("signup"))
+        assert "signup" in self.browser.current_url, 'Страница регистрации не доступна'

@@ -9,7 +9,7 @@ class TempMailPage(BasePage):
     # На странице временной почты взять мейл для регистрации
     def get_tempmail(self):
         tempmail = self.browser.find_element(*TempmailPageLocators.TEMPMAIL).text
-        print(tempmail)
+        print(f'Ваш email для регистрации {tempmail}')
         return tempmail
 
     def get_letter_password(self, browser):
@@ -18,7 +18,7 @@ class TempMailPage(BasePage):
             letter = WebDriverWait(browser, 10).until(ec.presence_of_element_located((TempmailPageLocators.LETTER_PASSWORD)))
             letter_pass = letter.text
             temp_password = re.findall(r"<b>(\w+)", letter_pass)
-            print(temp_password)
+            print(f'Ваш пароль для регистрации {temp_password}')
             return temp_password
             # result = True
         except:

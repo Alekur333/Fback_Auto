@@ -7,9 +7,9 @@ class TempmailPageLocators:
 
 class SignupPageLocators:
     SIGNUP_LINK = 'https://lk.ineed.chat/auth/signup'
-    REG_NAIM_FIELD = (By.CSS_SELECTOR, "#mat-input-0")
-    REG_MAIL_FIELD = (By.CSS_SELECTOR, "#mat-input-1")
-    REG_PHONE_FIELD = (By.CSS_SELECTOR, "#mat-input-2")
+    REG_NAIM_FIELD = (By.CSS_SELECTOR, 'input[placeholder="Ваш имя"]')
+    REG_MAIL_FIELD = (By.CSS_SELECTOR, 'input[placeholder="Ваш e-mail"]')
+    REG_PHONE_FIELD = (By.CSS_SELECTOR, 'input[placeholder="Номер мобильного телефона"]')
     REG_AGREE_BTN = (By.CSS_SELECTOR, "label.mat-checkbox-layout")
     REG_CREATE_BTN = (By.ID, "createacc")
 
@@ -33,6 +33,7 @@ class AppsFunctionsLocators:
     APPS_FUNCTIONS_LINK = "https://lk.ineed.chat/apps/details/function/f87f30c2-81c5-42b4-a45f-12912781bc33"
     FUNCTIONS_DONE_BTN = (By.CSS_SELECTOR, "#lk-step-1-complete")
     FUNCTIONS_IN_DETAIL_WINDOW_CLOSE_BTN = (By.CSS_SELECTOR, '.close-btn')
+
     HELP_BUTTON_CLOSE = (By.CSS_SELECTOR, ".main-button.close")
 
     # Функция НОВОСТИ
@@ -113,6 +114,8 @@ class AppsDemoLocators:
 
 class AppDoneLocators:
     REMOVE_APP_BTN = (By.CSS_SELECTOR, "#lk-apps-app-remove")
+    REMOVE_APP_CONTINUE_BTN = (By.CSS_SELECTOR, ".btn-big.mt-3.mt-md-0.ml-md-3.mat-flat-button.mat-primary")
+
 
 
 

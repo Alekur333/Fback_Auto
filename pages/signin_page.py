@@ -1,9 +1,15 @@
 from .base_page import BasePage
-from .locators import SigninPageLocators
+from .locators import SigninPageLocators, AppsFunctionsLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
 class SignInPage(BasePage):
+
+    # def fill_and_submit_signin(self, mail, password):
+    #     try:
+    #         self.browser.find_element(*AppsFunctionsLocators.HELP_BUTTON_CLOSE).click
+    #     except:
+    #         self.should_be_signin_page(mail, password)
 
     def should_be_signin_page(self, mail, password):
         self.check_url_signin_page()

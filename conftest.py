@@ -5,7 +5,6 @@ def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose browser: chrome or firefox")
 
-
 @pytest.fixture(scope="class")
 def browser(request):
     browser_name = request.config.getoption("browser_name")
@@ -13,9 +12,11 @@ def browser(request):
     if browser_name == "chrome":
         # print("\nstart chrome browser for test..")
         browser = webdriver.Chrome()
+        browser.maximize_window()
     elif browser_name == "firefox":
         # print("\nstart firefox browser for test..")
         browser = webdriver.Firefox()
+        browser.maximize_window()
     else:
         raise pytest.UsageError("--browser_name should be chrome or firefox")
     yield browser
