@@ -34,7 +34,11 @@ class AppsFunctionsLocators:
     FUNCTIONS_DONE_BTN = (By.CSS_SELECTOR, "#lk-step-1-complete")
     FUNCTIONS_IN_DETAIL_WINDOW_CLOSE_BTN = (By.CSS_SELECTOR, '.close-btn')
 
-    HELP_BUTTON_CLOSE = (By.CSS_SELECTOR, ".main-button.close")
+    HELP_BUTTON = (By.CSS_SELECTOR, "#cbh_button_container")
+    HELP_BUTTON_OPEN = (By.CSS_SELECTOR, ".main-button.active")
+    # HELP_BUTTON_CLOSE = (By.CSS_SELECTOR, ".main-button.close")
+    HELP_BUTTON_CLOSE = (By.CSS_SELECTOR, "iframe#cbh_button_container")
+    INPUT_MESSAGE = (By.CSS_SELECTOR, 'body input[placeholder="Text your message"]')
 
     # Функция НОВОСТИ
     NEWS_CHECK = (By.CSS_SELECTOR, "#lk-app-func-on-news")
@@ -63,7 +67,7 @@ class AppsFunctionsLocators:
     DELIVERY_CHECK = (By.CSS_SELECTOR, ".mat-dialog-container mat-checkbox:nth-child(1)")
     SELF_EXPORT_CHECK = (By.CSS_SELECTOR, ".mat-dialog-container mat-checkbox:nth-child(2)")
     ONLINE_PAY_CHECK = (By.CSS_SELECTOR, ".mat-dialog-container mat-checkbox:nth-child(3)")
-    APPLY_ADDITIONAL_PARAMETER_BTN = (By.CSS_SELECTOR, "button[_ngcontent-c20].mat-flat-button.mat-primary")
+    APPLY_ADDITIONAL_PARAMETER_BTN = (By.CSS_SELECTOR, "mat-dialog-container button.mat-flat-button")
     CLOSE_ADDITIONAL_PARAMETER_BTN = (By.CSS_SELECTOR, "button.close-btn.mat-icon-button.ng-star-inserted")
 
     # Функция ОНЛАЙН-ЗАПИСЬ
