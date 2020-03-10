@@ -1,16 +1,16 @@
 import pytest
 import time
-from pages.signup_page import SignUpPage
-from pages.signin_page import SignInPage
-from pages.tempmail_page import TempMailPage
-from pages.ineed_chat_page import IneedChatPage
-from pages.locators import IneedchatPageLocators, AppsFunctionsLocators, TempmailPageLocators, SigninPageLocators, SignupPageLocators
-from pages.create_app_page import CreateAppPage
-from pages.apps_functions_page import AppsFunctionsPage
-from pages.apps_title_page import AppsTitlePage
-from pages.apps_color_page import AppsColorPage
-from pages.apps_demo_page import AppsDemoPage
-from pages.apps_page import AppsPage
+from assemble_app.pages.signup_page import SignUpPage
+from assemble_app.pages.signin_page import SignInPage
+from assemble_app.pages.tempmail_page import TempMailPage
+from assemble_app.pages.ineed_chat_page import IneedChatPage
+from assemble_app.pages.locators import IneedchatPageLocators, AppsFunctionsLocators, TempmailPageLocators
+from assemble_app.pages.create_app_page import CreateAppPage
+from assemble_app.pages.apps_functions_page import AppsFunctionsPage
+from assemble_app.pages.apps_title_page import AppsTitlePage
+from assemble_app.pages.apps_color_page import AppsColorPage
+from assemble_app.pages.apps_demo_page import AppsDemoPage
+from assemble_app.pages.apps_page import AppsPage
 # from test_lk_auth import TestLkSignup
 
 landing_link = (IneedchatPageLocators.INEED_CHAT_LINK)

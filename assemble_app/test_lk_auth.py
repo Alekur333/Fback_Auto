@@ -1,9 +1,8 @@
 ﻿import pytest
-import time
-from pages.signup_page import SignUpPage
-from pages.signin_page import SignInPage
-from pages.tempmail_page import TempMailPage
-from pages.locators import TempmailPageLocators, SignupPageLocators, SigninPageLocators
+from assemble_app.pages.signup_page import SignUpPage
+from assemble_app.pages.signin_page import SignInPage
+from assemble_app.pages.tempmail_page import TempMailPage
+from assemble_app.pages.locators import TempmailPageLocators, SignupPageLocators, SigninPageLocators
 
 link_tempmail = (TempmailPageLocators.TEMPMAIL_LINK)
 link_signup = (SignupPageLocators.SIGNUP_LINK)

@@ -1,4 +1,4 @@
-from pages.base_page import BasePage
+from assemble_app.pages.base_page import BasePage
 from .locators import TempmailPageLocators
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
