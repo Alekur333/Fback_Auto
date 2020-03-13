@@ -5,9 +5,8 @@ class LoginPageLocators:
     LOGIN_LINK = "https://test.ineed.chat/login"
     PHONE_FIELD = (By.CSS_SELECTOR, "input[name='phone']")
     GET_SMS_BTN = (By.CSS_SELECTOR, "#ident > button")
-    SMS_FIELD = (By.CSS_SELECTOR, "input[name='verifiedCode']") #mat-input-1
+    SMS_FIELD = (By.CSS_SELECTOR, "input[name='verifiedCode']")
     LOGIN_BTN = (By.CSS_SELECTOR, "#auth > button")
-
 
 class MainPageLocators:
     MAIN_PAGE_LINK = "https://test.ineed.chat"
@@ -17,7 +16,6 @@ class MainPageLocators:
     USER_MENU_FULLSCREEN_BTN = (By.CSS_SELECTOR, 'div[role="menu"] button:nth-child(2)')
     USER_MENU_LOGOUT_BTN = (By.CSS_SELECTOR, 'div[role="menu"] button:nth-child(3)')
     NEWS_BTN = (By.CSS_SELECTOR, 'a[href="/news"]')
-
 
 class CompaniesPageLocators:
     COMPANIES_LINK = "https://test.ineed.chat/companies"
@@ -35,20 +33,19 @@ class NewsPageLocators:
     NEWS_DESCRIPTION = (By.CSS_SELECTOR, 'textarea[name="text"]')
     NEWS_DATE_DAYS_LIST = (By.CSS_SELECTOR, 'td[role="button"]')
     NEWS_START_DATE_BTN = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div' \
-                                 '/news-home/news-details/div/mat-card/form/mat-form-field[3]/div/div[1]/div[2]' \
-                                 '/mat-datepicker-toggle/button')
+                                     '/news-home/news-details/div/mat-card/form/mat-form-field[3]/div/div[1]/div[2]' \
+                                     '/mat-datepicker-toggle/button')
     NEWS_START_CURRENT_DAY = (By.CSS_SELECTOR, 'tr:nth-child(3) > td.mat-calendar-body-cell.mat-focus-indicator.'
                                                'mat-calendar-body-active.ng-star-inserted > div')
     NEWS_END_DATE_BTN = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div/'
-                               'news-home/news-details/div/mat-card/form/mat-form-field[4]/div/div[1]/div[2]/'
-                               'mat-datepicker-toggle/button')
-    NEWS_END_CURRENT_DAY = (By.CSS_SELECTOR, '#mat-datepicker-2 > div > mat-month-view > table > tbody > tr:nth-child(3)'
-                                            ' > td.mat-calendar-body-cell.mat-focus-indicator.mat-calendar-body-active.'
-                                            'ng-star-inserted > div')
-    NEWS_END_DAY = (By.XPATH, '//div[text()=" 5 "]')
+                                   'news-home/news-details/div/mat-card/form/mat-form-field[4]/div/div[1]/div[2]/'
+                                   'mat-datepicker-toggle/button')
+    NEWS_END_CURRENT_DAY = (By.CSS_SELECTOR, '#mat-datepicker-2 > div > mat-month-view > table > tbody > '
+                                             'tr:nth-child(3) > td.mat-calendar-body-cell.mat-focus-indicator.'
+                                             'mat-calendar-body-active.ng-star-inserted > div')
+    NEWS_END_DAY = (By.XPATH, '//div[text()=" 5 "]') # //div[contains(text(), "5")]
     NEWS_NEXT_MONTH_BTN = (By.CSS_SELECTOR, 'button.mat-calendar-next-button')
     NEWS_END_MONTH_YEAR = (By.CSS_SELECTOR, 'button.mat-calendar-period-button span.mat-button-wrapper')
-
     NEWS_SEND_PUSH_CHECK_BOX = (By.XPATH, '//*[@id="mat-slide-toggle-1"]/label/div')
     # NEWS_SAFE появляется после ввода названия новости
     NEWS_SAFE = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div/'

@@ -15,8 +15,8 @@ class NewsPage(MainPage):
         # assert "news" in self.browser.current_url, 'Это не страница новостей'
         assert WebDriverWait(self.browser, 10).until(ec.url_contains("news")), 'Это не страница Новости'
 
+    # Создаем новость и в финале её удаляем
     def news_creation(self):
-
         self.should_be_create_new_option()
         time.sleep(2)
         self.add_new_start()
@@ -27,13 +27,13 @@ class NewsPage(MainPage):
         self.should_be_news_description()
         self.add_news_description()
         self.should_be_news_start_date()
-        time.sleep(2)
+        # time.sleep(2)
         self.should_be_news_end_date()
         # time.sleep(2)
         self.should_be_push_switcher()
         self.should_be_safe_new_btn()
         self.should_be_news_page()
-        time.sleep(20)
+        # time.sleep(20)
         self.delete_created_new()
 
     def should_be_create_new_option(self):
@@ -76,14 +76,13 @@ class NewsPage(MainPage):
         print(f'День:  {current_day}')
         self.browser.find_element(*NewsPageLocators.NEWS_START_DATE_BTN).click()
         start_day = self.browser.find_element(*NewsPageLocators.NEWS_START_CURRENT_DAY).text
-
         print(f'Новость начинается {start_day}.{current_month}.{current_year}')
         self.browser.find_element(*NewsPageLocators.NEWS_START_CURRENT_DAY).click()
 
     def should_be_news_end_date(self):
         self.browser.find_element(*NewsPageLocators.NEWS_END_DATE_BTN).click()
         self.browser.find_element(*NewsPageLocators.NEWS_NEXT_MONTH_BTN).click()
-        time.sleep(2)
+        # time.sleep(2)
         self.browser.find_element(*NewsPageLocators.NEWS_END_DAY).click()
         month_year_end = self.browser.find_element(*NewsPageLocators.NEWS_END_MONTH_YEAR).text
         print(f'Окончание новости: 5 {month_year_end}')
