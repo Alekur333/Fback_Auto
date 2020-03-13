@@ -33,25 +33,26 @@ class NewsPageLocators:
     BACK_FROM_CREATE_NEW = (By.CSS_SELECTOR, "news-details > div > div > button-back")
     NEWS_TITLE = (By.CSS_SELECTOR, "input[name='name']")
     NEWS_DESCRIPTION = (By.CSS_SELECTOR, 'textarea[name="text"]')
-    INPUT_START_DATE = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div/'
-                                  'news-home/news-details/div/mat-card/form/mat-form-field[3]/div/div[1]/div[1]/input')
-    NEWS_START_DATE_FRAME = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/'
-                                       'div/news-home/news-details/div/mat-card/form/mat-form-field[3]/div/div[1]')
-    CURRENT_DAY = (By.XPATH, '/html/body/div[3]/div[2]/div/mat-datepicker-content/mat-calendar/div/mat-month-view/'
-                             'table/tbody/tr[3]/td[5]/div')
-    NEWS_DATE_ACCEPT = (By.XPATH, '/html/body/div[3]/div[2]/div/mat-datepicker-content')
-    NEWS_START_DATE = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div' \
+    NEWS_DATE_DAYS_LIST = (By.CSS_SELECTOR, 'td[role="button"]')
+    NEWS_START_DATE_BTN = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div' \
                                  '/news-home/news-details/div/mat-card/form/mat-form-field[3]/div/div[1]/div[2]' \
                                  '/mat-datepicker-toggle/button')
-    # NEWS_START_DATE_ACCEPT = (By.CSS_SELECTOR, '#mat-datepicker-3')
-    NEWS_END_DATE = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div/'
+    NEWS_START_CURRENT_DAY = (By.CSS_SELECTOR, 'tr:nth-child(3) > td.mat-calendar-body-cell.mat-focus-indicator.'
+                                               'mat-calendar-body-active.ng-star-inserted > div')
+    NEWS_END_DATE_BTN = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div/'
                                'news-home/news-details/div/mat-card/form/mat-form-field[4]/div/div[1]/div[2]/'
                                'mat-datepicker-toggle/button')
-    # NEWS_END_DATE_ACCEPT = (By.CSS_SELECTOR, '#mat-datepicker-4')
+    NEWS_END_CURRENT_DAY = (By.CSS_SELECTOR, '#mat-datepicker-2 > div > mat-month-view > table > tbody > tr:nth-child(3)'
+                                            ' > td.mat-calendar-body-cell.mat-focus-indicator.mat-calendar-body-active.'
+                                            'ng-star-inserted > div')
+    NEWS_END_DAY = (By.XPATH, '//div[text()=" 5 "]')
+    NEWS_NEXT_MONTH_BTN = (By.CSS_SELECTOR, 'button.mat-calendar-next-button')
+    NEWS_END_MONTH_YEAR = (By.CSS_SELECTOR, 'button.mat-calendar-period-button span.mat-button-wrapper')
+
     NEWS_SEND_PUSH_CHECK_BOX = (By.XPATH, '//*[@id="mat-slide-toggle-1"]/label/div')
+    # NEWS_SAFE появляется после ввода названия новости
     NEWS_SAFE = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div/'
-                                  'news-home/news-details/div/div/button')
-    #появляется после ввода названия новости
+                           'news-home/news-details/div/div/button')
     DELETE_NEW = (By.CSS_SELECTOR, 'news-list > div > div:nth-child(2) > news-item > div > button')
     DELETE_NEW_YES = (By.CSS_SELECTOR, '#mat-dialog-0 > app-dialog-confirm > div.text-right > button:nth-child(2)')
     DELETE_NEW_NO = (By.CSS_SELECTOR, '#mat-dialog-0 > app-dialog-confirm > div.text-right > button:nth-child(1)')

@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.keys import Keys
 import time
 from datetime import datetime
+from selenium.webdriver.support.ui import Select
 
 
 class NewsPage(MainPage):
@@ -32,7 +33,7 @@ class NewsPage(MainPage):
         self.should_be_push_switcher()
         self.should_be_safe_new_btn()
         self.should_be_news_page()
-        time.sleep(15)
+        time.sleep(20)
         self.delete_created_new()
 
     def should_be_create_new_option(self):
@@ -55,39 +56,40 @@ class NewsPage(MainPage):
         assert self.browser.find_element(*NewsPageLocators.NEWS_TITLE), 'Нет поля для названия новости'
 
     def add_news_title(self):
-        self.browser.find_element(*NewsPageLocators.NEWS_TITLE).send_keys('Auto-new')
+        self.browser.find_element(*NewsPageLocators.NEWS_TITLE).send_keys('Automation new')
 
     def should_be_news_description(self):
         assert self.browser.find_element(*NewsPageLocators.NEWS_DESCRIPTION), 'Нет поля для описания новости'
 
     def add_news_description(self):
-        self.browser.find_element(*NewsPageLocators.NEWS_DESCRIPTION).send_keys('Created by AleKur QA')
+        self.browser.find_element(*NewsPageLocators.NEWS_DESCRIPTION).send_keys('Auto-test created by AleKur QA')
 
     def should_be_news_start_date(self):
-        assert self.browser.find_element(*NewsPageLocators.NEWS_START_DATE), 'Нет кнопки начала отображения новости'
+        assert self.browser.find_element(*NewsPageLocators.NEWS_START_DATE_BTN), 'Нет кнопки начала отображения новости'
         now_date = datetime.now().date()
         print(now_date)
+        current_year = str(now_date.year)
+        print(f'Год: {current_year}')
         current_month = str(now_date.month)
         print(f'Месяц: {current_month}')
         current_day = str(now_date.day)
         print(f'День:  {current_day}')
-        # self.browser.find_element(*NewsPageLocators.INPUT_START_DATE).send_keys(now_date) #Message: element not interactable
-        self.browser.find_element(*NewsPageLocators.NEWS_START_DATE).click()
-        self.browser.find_element(*NewsPageLocators.CURRENT_DAY).click()
-        # self.browser.find_element(*NewsPageLocators.NEWS_DATE_ACCEPT).click()
+        self.browser.find_element(*NewsPageLocators.NEWS_START_DATE_BTN).click()
+        start_day = self.browser.find_element(*NewsPageLocators.NEWS_START_CURRENT_DAY).text
+
+        print(f'Новость начинается {start_day}.{current_month}.{current_year}')
+        self.browser.find_element(*NewsPageLocators.NEWS_START_CURRENT_DAY).click()
 
     def should_be_news_end_date(self):
-        # assert self.browser.find_element(*NewsPageLocators.NEWS_END_DATE), 'Нет поля конца отображения новости'
-        self.browser.find_element(*NewsPageLocators.NEWS_END_DATE).click()
-        self.browser.find_element(*NewsPageLocators.CURRENT_DAY).click()
-        # self.browser.find_element(*NewsPageLocators.NEWS_END_DATE).send_keys(Keys.ENTER)
-        # self.browser.find_element(*NewsPageLocators.NEWS_END_DATE).send_keys(Keys.ARROW_RIGHT)
-        # self.browser.find_element(*NewsPageLocators.NEWS_END_DATE).send_keys(Keys.ENTER)
+        self.browser.find_element(*NewsPageLocators.NEWS_END_DATE_BTN).click()
+        self.browser.find_element(*NewsPageLocators.NEWS_NEXT_MONTH_BTN).click()
+        time.sleep(2)
+        self.browser.find_element(*NewsPageLocators.NEWS_END_DAY).click()
+        month_year_end = self.browser.find_element(*NewsPageLocators.NEWS_END_MONTH_YEAR).text
+        print(f'Окончание новости: 5 {month_year_end}')
 
     def should_be_safe_new_btn(self):
-        # assert self.browser.find_element(*NewsPageLocators.NEWS_SAFE), 'Нет кнопки Сохранить новость'
         assert WebDriverWait(self.browser, 10).until(ec.element_to_be_clickable(NewsPageLocators.NEWS_SAFE))
-        # self.browser.find_element(*NewsPageLocators.NEWS_SAFE).click()
         WebDriverWait(self.browser, 10).until(ec.element_to_be_clickable(NewsPageLocators.NEWS_SAFE)).click()
 
     def should_be_push_switcher(self):
