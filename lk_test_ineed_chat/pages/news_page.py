@@ -6,6 +6,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 from datetime import datetime
 from selenium.webdriver.support.ui import Select
+import os
 
 
 class NewsPage(MainPage):
@@ -31,10 +32,11 @@ class NewsPage(MainPage):
         self.should_be_news_end_date()
         # time.sleep(2)
         self.should_be_push_switcher()
-        self.should_be_safe_new_btn()
+        self.news_attach_picture()
+        self.should_be_save_new_btn()
         self.should_be_news_page()
         # time.sleep(20)
-        self.delete_created_new()
+        # self.delete_created_new()
 
     def should_be_create_new_option(self):
         assert WebDriverWait(self.browser, 10).until\
@@ -87,13 +89,18 @@ class NewsPage(MainPage):
         month_year_end = self.browser.find_element(*NewsPageLocators.NEWS_END_MONTH_YEAR).text
         print(f'Окончание новости: 5 {month_year_end}')
 
-    def should_be_safe_new_btn(self):
+    def should_be_save_new_btn(self):
         assert WebDriverWait(self.browser, 10).until(ec.element_to_be_clickable(NewsPageLocators.NEWS_SAFE))
         WebDriverWait(self.browser, 10).until(ec.element_to_be_clickable(NewsPageLocators.NEWS_SAFE)).click()
 
     def should_be_push_switcher(self):
         assert self.browser.find_element(*NewsPageLocators.NEWS_SEND_PUSH_CHECK_BOX), '"Включить пуш" не найдено'
         self.browser.find_element(*NewsPageLocators.NEWS_SEND_PUSH_CHECK_BOX).click()
+
+    def news_attach_picture(self):
+        current_dir = os.path.abspath(os.path.dirname(__file__))
+        file_path = os.path.join(current_dir, 'autotest_se.png')
+        self.browser.find_element(*NewsPageLocators.NEWS_ATTACH_PICTURE).send_keys(file_path)
 
     def delete_created_new(self):
         self.browser.find_element(*NewsPageLocators.DELETE_NEW).click()

@@ -47,6 +47,7 @@ class NewsPageLocators:
     NEWS_NEXT_MONTH_BTN = (By.CSS_SELECTOR, 'button.mat-calendar-next-button')
     NEWS_END_MONTH_YEAR = (By.CSS_SELECTOR, 'button.mat-calendar-period-button span.mat-button-wrapper')
     NEWS_SEND_PUSH_CHECK_BOX = (By.XPATH, '//*[@id="mat-slide-toggle-1"]/label/div')
+    NEWS_ATTACH_PICTURE = (By.CSS_SELECTOR, 'input[type="file"]')
     # NEWS_SAFE появляется после ввода названия новости
     NEWS_SAFE = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div/'
                            'news-home/news-details/div/div/button')
