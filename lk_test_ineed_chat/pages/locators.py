@@ -35,8 +35,7 @@ class NewsPageLocators:
     NEWS_START_DATE_BTN = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div' \
                                      '/news-home/news-details/div/mat-card/form/mat-form-field[3]/div/div[1]/div[2]' \
                                      '/mat-datepicker-toggle/button')
-    NEWS_START_CURRENT_DAY = (By.CSS_SELECTOR, 'tr:nth-child(3) > td.mat-calendar-body-cell.mat-focus-indicator.'
-                                               'mat-calendar-body-active.ng-star-inserted > div')
+    NEWS_START_CURRENT_DAY = (By.CSS_SELECTOR, 'div.mat-calendar-body-today')
     NEWS_END_DATE_BTN = (By.XPATH, '/html/body/app-root/company-home/mat-drawer-container/mat-drawer-content/div/'
                                    'news-home/news-details/div/mat-card/form/mat-form-field[4]/div/div[1]/div[2]/'
                                    'mat-datepicker-toggle/button')
