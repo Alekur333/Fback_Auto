@@ -20,8 +20,6 @@ class TestNews:
         news_page = NewsPage(browser, browser.current_url)
         news_page.should_be_news_page()
         news_page.news_creation()
-        # news_page.should_be_create_new_option()
-
         news_page.should_be_user_menu()
         news_page.go_to_user_menu()
         news_page.should_be_logout_btn()

@@ -10,7 +10,7 @@ print(f'Месяц: {current_month}')
 current_day = str(now1.day)
 print(f'День:  {current_day}')
 
-browser = Browser()
+browser = Browser('chrome')
 # browser.maximize_window()
 browser.visit('http://google.com')
 browser.fill('q', 'splinter - python acceptance testing for web applications')
