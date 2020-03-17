@@ -6,13 +6,13 @@ from selenium.webdriver.common.keys import Keys
 import time
 from datetime import datetime
 from selenium.webdriver.support.ui import Select
+import os
 
 
 class NewsPage(MainPage):
 
     # Проверяем переход на страницу новостей
     def should_be_news_page(self):
-        # assert "news" in self.browser.current_url, 'Это не страница новостей'
         assert WebDriverWait(self.browser, 10).until(ec.url_contains("news")), 'Это не страница Новости'
 
     # Создаем новость и в финале её удаляем
@@ -31,18 +31,18 @@ class NewsPage(MainPage):
         self.should_be_news_end_date()
         # time.sleep(2)
         self.should_be_push_switcher()
-        self.should_be_safe_new_btn()
+        self.news_attach_picture()
+        time.sleep(3)
+        self.should_be_save_new_btn()
         self.should_be_news_page()
-        # time.sleep(20)
+        time.sleep(2)
         self.delete_created_new()
 
     def should_be_create_new_option(self):
         assert WebDriverWait(self.browser, 10).until\
             (ec.presence_of_element_located(NewsPageLocators.ADD_NEW)), 'Нет опции "Добавить новость"'
-        # assert self.browser.find_element('news-list > div > div:nth-child(1)'), 'Нет опции "Добавить новость"'
 
     def add_new_start(self):
-        # self.browser.find_element(*NewsPageLocators.ADD_NEW).click()
         WebDriverWait(self.browser, 30).until \
             (ec.element_to_be_clickable(NewsPageLocators.ADD_NEW)).click()
 
@@ -87,7 +87,7 @@ class NewsPage(MainPage):
         month_year_end = self.browser.find_element(*NewsPageLocators.NEWS_END_MONTH_YEAR).text
         print(f'Окончание новости: 5 {month_year_end}')
 
-    def should_be_safe_new_btn(self):
+    def should_be_save_new_btn(self):
         assert WebDriverWait(self.browser, 10).until(ec.element_to_be_clickable(NewsPageLocators.NEWS_SAFE))
         WebDriverWait(self.browser, 10).until(ec.element_to_be_clickable(NewsPageLocators.NEWS_SAFE)).click()
 
@@ -95,11 +95,18 @@ class NewsPage(MainPage):
         assert self.browser.find_element(*NewsPageLocators.NEWS_SEND_PUSH_CHECK_BOX), '"Включить пуш" не найдено'
         self.browser.find_element(*NewsPageLocators.NEWS_SEND_PUSH_CHECK_BOX).click()
 
+    def news_attach_picture(self):
+        # print(os.path.abspath(__file__))
+        # print(os.path.abspath(os.path.dirname(__file__)))
+        # current_dir = os.path.abspath(os.path.dirname(__file__))
+        current_dir = os.path.dirname(r'C:\Users\user\pics\\')
+        file_path = os.path.join(current_dir, 'autotest_se.png')
+        print(file_path)
+        self.browser.find_element(*NewsPageLocators.NEWS_ATTACH_PICTURE).send_keys(file_path)
+
     def delete_created_new(self):
         self.browser.find_element(*NewsPageLocators.DELETE_NEW).click()
         assert self.browser.find_element(*NewsPageLocators.DELETE_NEW_NO), 'Кнопка Потвердить удаление-НЕТ не найдена'
         assert self.browser.find_element(*NewsPageLocators.DELETE_NEW_YES), 'Кнопка Потвердить удаление-ДА не найдена'
         self.browser.find_element(*NewsPageLocators.DELETE_NEW_YES).click()
-
-
 

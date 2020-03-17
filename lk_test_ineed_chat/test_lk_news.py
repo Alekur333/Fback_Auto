@@ -2,7 +2,8 @@ import pytest
 import time
 from .pages.login_page import LoginPage
 from .pages.news_page import NewsPage
-from .pages.locators import LoginPageLocators, NewsPageLocators, MainPageLocators
+from .pages.locators import LoginPageLocators
+
 
 login_link = (LoginPageLocators.LOGIN_LINK)
 phone = "79523401124"
@@ -11,7 +12,7 @@ sms = "111111"
 
 class TestNews:
 
-    def test_news_page(self, browser):
+    def test_create_news_page(self, browser):
         login_page = LoginPage(browser, login_link)
         login_page.open()
         login_page.should_be_login_page(phone, sms)
