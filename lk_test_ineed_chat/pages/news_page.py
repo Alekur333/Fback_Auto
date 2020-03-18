@@ -35,7 +35,7 @@ class NewsPage(MainPage):
         time.sleep(3)
         self.should_be_save_new_btn()
         self.should_be_news_page()
-        time.sleep(2)
+        time.sleep(15)
         self.delete_created_new()
 
     def should_be_create_new_option(self):
