@@ -11,7 +11,6 @@ from assemble_app.pages.apps_title_page import AppsTitlePage
 from assemble_app.pages.apps_color_page import AppsColorPage
 from assemble_app.pages.apps_demo_page import AppsDemoPage
 from assemble_app.pages.apps_page import AppsPage
-# from test_lk_auth import TestLkSignup
 
 landing_link = (IneedchatPageLocators.INEED_CHAT_LINK)
 functions_link = (AppsFunctionsLocators.APPS_FUNCTIONS_LINK)
