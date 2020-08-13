@@ -26,3 +26,7 @@ class IneedChatPage(BasePage):
     def go_to_clients_entrance_in_main_menu(self):
         self.browser.find_element(*IneedchatPageLocators.MAIN_MENU_CLIENTS_ENTRANCE).click()
 
+    def create_app_reasons(self):
+        self.browser.find_element(*IneedchatPageLocators.CREATE_APP_BTN_LANDING).click()
+
+

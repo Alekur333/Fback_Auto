@@ -25,13 +25,16 @@ class TestAssembleAppFull:
         # Открыть лэндинг
         ineedchat_page = IneedChatPage(browser, landing_link)
         ineedchat_page.open()
-        # Открыть меню
-        ineedchat_page.should_be_clients_entrance_btn_in_main_menu()
-        ineedchat_page.go_to_main_menu()
-        # Сделать вход для клиентов
-        ineedchat_page.should_be_main_menu_close_btn()
-        ineedchat_page.should_be_clients_entrance_btn_in_main_menu()
-        ineedchat_page.go_to_clients_entrance_in_main_menu()
+        ineedchat_page.create_app_reasons()
+        window0 = browser.window_handles[1]
+        browser.switch_to.window(window0)
+        # # Открыть меню
+        # ineedchat_page.should_be_clients_entrance_btn_in_main_menu()
+        # ineedchat_page.go_to_main_menu()
+        # # Сделать вход для клиентов
+        # ineedchat_page.should_be_main_menu_close_btn()
+        # ineedchat_page.should_be_clients_entrance_btn_in_main_menu()
+        # ineedchat_page.go_to_clients_entrance_in_main_menu()
         # Открыть страницу создания приложения
         create_app_page = CreateAppPage(browser, browser.current_url)
         create_app_page.should_be_create_app_btn()
@@ -60,19 +63,20 @@ class TestAssembleAppFull:
         apps_demo_page.should_be_signin_btn_for_demo_app_on_popup_window()
         apps_demo_page.should_be_signup_btn_for_demo_app_on_popup_window()
         apps_demo_page.should_be_close_popup_window_btn()
+        apps_demo_page.should_be_grate_sign()
         apps_demo_page.signup_for_demo_app_on_popup_window()
         apps_demo_page.should_be_signup_url_after_demo()
-        window1 = browser.window_handles[0]
-        browser.switch_to.window(window1)
+        # window1 = browser.window_handles[2]
+        # browser.switch_to.window(window1)
         # Открыть страницу временной почты
         browser.execute_script("window.open('{}', '_blank');".format(link_tempmail))
-        window2 = browser.window_handles[1]
+        window2 = browser.window_handles[2]
         browser.switch_to.window(window2)
         tempmail_page = TempMailPage(browser, browser.current_url)
         # взять мейл для регистрации
         temp_mail = tempmail_page.get_tempmail()
         # Открыть страницу регистрации и зарегистрироваться
-        browser.switch_to.window(window1)
+        browser.switch_to.window(window0)
         signup_page = SignUpPage(browser, browser.current_url)
         signup_page.should_be_signup_url()
         signup_page.should_be_signup_page(regname, temp_mail, regphone)
@@ -81,7 +85,7 @@ class TestAssembleAppFull:
         temp_password = tempmail_page.get_letter_password(browser)
         # Проверяем переход на страницу входа после успешной регистрации
         # Заполняем обязательные поля и входим
-        browser.switch_to.window(window1)
+        browser.switch_to.window(window0)
         signin_page = SignInPage(browser, browser.current_url)
         signin_page.should_be_signin_page(temp_mail, temp_password)
         # Проверяем переход на страницу приложений после успешного входа

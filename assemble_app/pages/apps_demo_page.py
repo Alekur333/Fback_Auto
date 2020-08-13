@@ -32,6 +32,9 @@ class AppsDemoPage(BasePage):
             (ec.presence_of_element_located(AppsDemoLocators.DEMO_SIGNUP_BTN)), \
             "Кнопка ВОЙТИ в Демо не найдена"
 
+    def should_be_grate_sign(self):
+        self.browser.find_element(*AppsDemoLocators.DEMO_GRATE_SIGN).click()
+
     def signup_for_demo_app_on_popup_window(self):
         self.browser.find_element(*AppsDemoLocators.DEMO_SIGNUP_BTN).click()
 
@@ -44,6 +47,7 @@ class AppsDemoPage(BasePage):
         self.browser.find_element(*AppsDemoLocators.DEMO_POPUP_WINDOW_CLOSE).click()
 
     def should_be_signup_url_after_demo(self):
-        WebDriverWait(self.browser, 10).until(ec.url_contains("signup"))
-        assert "signup" in self.browser.current_url, 'Страница регистрации не доступна'
+        assert WebDriverWait(self.browser, 30).until(ec.url_contains("signup")), \
+            'Страница регистрации не доступна'
+        # assert "signup" in self.browser.current_url, 'Страница регистрации не доступна'
 

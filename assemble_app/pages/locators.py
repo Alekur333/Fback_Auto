@@ -7,9 +7,9 @@ class TempmailPageLocators:
 
 class SignupPageLocators:
     SIGNUP_LINK = 'https://lk.ineed.chat/auth/signup'
-    REG_NAIM_FIELD = (By.CSS_SELECTOR, 'input[placeholder="Ваш имя"]')
-    REG_MAIL_FIELD = (By.CSS_SELECTOR, 'input[placeholder="Ваш e-mail"]')
-    REG_PHONE_FIELD = (By.CSS_SELECTOR, 'input[placeholder="Номер мобильного телефона"]')
+    REG_NAIM_FIELD = (By.CSS_SELECTOR, 'input[formcontrolname="nameFormControl"]')
+    REG_MAIL_FIELD = (By.CSS_SELECTOR, 'input[formcontrolname="emailFormControl"]')
+    REG_PHONE_FIELD = (By.CSS_SELECTOR, 'input[formcontrolname="phoneFormControl"]')
     REG_AGREE_BTN = (By.CSS_SELECTOR, "label.mat-checkbox-layout")
     REG_CREATE_BTN = (By.ID, "createacc")
 
@@ -24,6 +24,7 @@ class IneedchatPageLocators:
     MAIN_MENU_OPEN = (By.CSS_SELECTOR, '.menu-btn')
     MAIN_MENU_CLOSE = (By.CSS_SELECTOR, ".close-menu-btn")
     MAIN_MENU_CLIENTS_ENTRANCE = (By.XPATH, '//div[@class="main-menu"]/ul/li/a[contains(text(), "Вход для клиентов")]')
+    CREATE_APP_BTN_LANDING = (By.CSS_SELECTOR, "#create-prichiny")
 
 class CreateAppPageLocators:
     CREATE_APP_LINK = "https://lk.ineed.chat/apps/start"
@@ -115,6 +116,7 @@ class AppsDemoLocators:
     DEMO_SIGNIN_BTN = (By.CSS_SELECTOR, "#lk-step-finish-to-signin")
     DEMO_SIGNUP_BTN = (By.CSS_SELECTOR, "#lk-step-finish-to-signup")
     DEMO_POPUP_WINDOW_CLOSE = (By.CSS_SELECTOR, ".close-btn")
+    DEMO_GRATE_SIGN = (By.XPATH, '//h5["Отлично"]')
 
 class AppDoneLocators:
     REMOVE_APP_BTN = (By.CSS_SELECTOR, "#lk-apps-app-remove")

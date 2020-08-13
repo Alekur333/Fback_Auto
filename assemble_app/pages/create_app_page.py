@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as ec
 class CreateAppPage(BasePage):
 
     def should_be_create_app_btn(self):
-        assert WebDriverWait(self.browser, 10).until\
+        assert WebDriverWait(self.browser, 20).until\
             (ec.presence_of_element_located(CreateAppPageLocators.CREATE_APP_BTN)), \
             "Кнопка СОЗДАТЬ ПРИЛОЖЕНИЕ не найдена"
 
