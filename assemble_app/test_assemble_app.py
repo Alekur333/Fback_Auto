@@ -92,6 +92,7 @@ class TestAssembleAppFull:
         signin_page.should_be_apps_page()
         # Удаляем созданное приложение
         apps_page = AppsPage(browser, browser.current_url)
+        time.sleep(1)
         apps_page.should_be_remove_app_btn()
         apps_page.remove_app()
         # time.sleep(1)
